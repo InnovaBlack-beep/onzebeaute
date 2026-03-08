@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Onze Beauté — Clínica Estética · Zapopan</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0f0f0f;--off:#f7f4f0;--white:#fff;--accent:#be4a5a;--accent-d:#9e3a47;--mid:#6b6b6b;--border:#e5e5e5;--light:#f2f2f2}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--black);background:var(--white);overflow-x:hidden}
+#sbar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:9999;width:0;transition:width .1s}
+.ann{background:var(--black);color:rgba(255,255,255,.65);text-align:center;padding:10px 20px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;font-weight:500}
+.ann strong{color:#fff}.ann a{color:var(--accent);text-decoration:none;font-weight:700;margin-left:8px}
+nav{position:sticky;top:0;z-index:998;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:62px}
+.nav-logo{font-family:'Outfit',sans-serif;font-size:17px;font-weight:900;letter-spacing:.04em;color:var(--black);text-transform:uppercase}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:13px;color:var(--mid);text-decoration:none;padding:7px 14px;border-radius:6px;font-weight:500;transition:.15s}
+.nav-links a:hover{color:var(--black);background:var(--light)}
+.nav-book{background:var(--black)!important;color:#fff!important;border-radius:6px!important;padding:8px 22px!important;font-weight:700!important}
+.nav-book:hover{background:var(--accent)!important}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:91vh;overflow:hidden}
+.hero-l{background:var(--off);display:flex;flex-direction:column;justify-content:flex-end;padding:68px 56px 68px 64px;position:relative;overflow:hidden}
+.hero-deco{position:absolute;top:-10px;left:28px;font-family:'Outfit',sans-serif;font-size:300px;font-weight:900;color:rgba(0,0,0,.035);line-height:1;letter-spacing:-.06em;user-select:none;pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:28px;width:fit-content;position:relative;z-index:1}
+.htdot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-family:'Outfit',sans-serif;font-size:clamp(44px,5.2vw,72px);font-weight:900;line-height:.98;letter-spacing:-.04em;color:var(--black);margin-bottom:22px;position:relative;z-index:1}
+.hero-h1 .acc{color:var(--accent)}
+.hero-sub{font-size:15.5px;color:var(--mid);line-height:1.68;max-width:420px;margin-bottom:38px;font-weight:400;position:relative;z-index:1}
+.hero-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-blk{background:var(--black);color:#fff;border-radius:6px;padding:13px 28px;font-size:14px;font-weight:600;text-decoration:none;transition:.15s;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;border:none}
+.btn-blk:hover{background:var(--accent);transform:translateY(-1px)}
+.btn-ghost{border:1.5px solid var(--border);color:var(--mid);border-radius:6px;padding:12px 22px;font-size:14px;font-weight:500;text-decoration:none;transition:.15s}
+.btn-ghost:hover{border-color:var(--black);color:var(--black)}
+.hero-stats{display:flex;gap:36px;margin-top:48px;padding-top:32px;border-top:1px solid var(--border);position:relative;z-index:1}
+.hs-num{font-family:'Outfit',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.03em}
+.hs-num .acc{color:var(--accent)}
+.hs-label{font-size:11px;color:var(--mid);margin-top:2px;letter-spacing:.04em;font-weight:500}
+.hero-r{position:relative;overflow:hidden;background:var(--black)}
+.hero-r img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:transform 7s ease}
+.hero-r:hover img{transform:scale(1.04)}
+.hero-float{position:absolute;bottom:28px;left:28px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 28px rgba(0,0,0,.14)}
+.hf-avs{display:flex}
+.hf-avs img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-right:-7px}
+.hf-text{font-size:12px;color:var(--mid)}
+.hf-text strong{display:block;font-size:13px;color:var(--black);font-weight:600;margin-bottom:1px}
+.ticker{background:var(--accent);overflow:hidden;padding:12px 0}
+.ticker-track{display:flex;animation:tick 28s linear infinite;width:max-content}
+.ticker-item{font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:700;color:#fff;padding:0 26px;white-space:nowrap;letter-spacing:.08em;text-transform:uppercase}
+@keyframes tick{to{transform:translateX(-50%)}}
+.stats{background:var(--black);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:38px 40px;border-right:1px solid rgba(255,255,255,.07);text-align:center}
+.stat:last-child{border:none}
+.stat-n{font-family:'Outfit',sans-serif;font-size:46px;font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1}
+.stat-n .acc{color:var(--accent)}
+.stat-l{font-size:11px;color:rgba(255,255,255,.35);margin-top:6px;letter-spacing:.1em;text-transform:uppercase}
+.esp-sec{display:grid;grid-template-columns:1fr 1fr;min-height:580px;overflow:hidden}
+.esp-img{position:relative;overflow:hidden;background:var(--light)}
+.esp-img img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s}
+.esp-img:hover img{transform:scale(1.03)}
+.esp-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 55%);padding:40px 36px 28px}
+.eo-eyebrow{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px}
+.eo-name{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:#fff}
+.esp-content{background:var(--off);display:flex;flex-direction:column;justify-content:center;padding:72px 64px}
+.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.h2{font-family:'Outfit',sans-serif;font-size:clamp(30px,3.2vw,48px);font-weight:800;letter-spacing:-.03em;line-height:1.05;color:var(--black);margin-bottom:18px}
+.body-text{font-size:15px;color:var(--mid);line-height:1.75;margin-bottom:30px;max-width:480px}
+.creds{display:flex;flex-direction:column;gap:0;margin-bottom:36px}
+.cred{display:flex;align-items:flex-start;gap:16px;padding:15px 0;border-bottom:1px solid var(--border)}
+.cred:first-child{border-top:1px solid var(--border)}
+.cred-n{font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;color:var(--accent);width:26px;flex-shrink:0;margin-top:2px}
+.cred-t{font-size:14px;font-weight:600;color:var(--black);margin-bottom:2px}
+.cred-s{font-size:12px;color:var(--mid)}
+.obj-sec{padding:96px 64px;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.obj-list{display:flex;flex-direction:column}
+.obj-item{padding:22px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.obj-item:first-child{border-top:1px solid var(--border)}
+.obj-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.obj-q{font-family:'Outfit',sans-serif;font-size:15.5px;font-weight:700;color:var(--black);letter-spacing:-.01em;line-height:1.3}
+.obj-icon{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:var(--mid);transition:.2s;line-height:1}
+.obj-item.open .obj-icon{background:var(--black);border-color:var(--black);color:#fff;transform:rotate(45deg)}
+.obj-a{font-size:13.5px;color:var(--mid);line-height:1.72;margin-top:12px;display:none}
+.obj-item.open .obj-a{display:block}
+.como-box{background:var(--black);border-radius:12px;padding:44px 40px;position:sticky;top:90px;margin-top:20px}
+.como-h{font-family:'Outfit',sans-serif;font-size:21px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.2;margin-bottom:32px}
+.como-step{display:flex;gap:18px;margin-bottom:24px}
+.cs-n{font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;color:var(--accent);width:26px;flex-shrink:0;margin-top:3px}
+.cs-t{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px}
+.cs-s{font-size:12.5px;color:rgba(255,255,255,.42);line-height:1.55}
+.como-cta{margin-top:32px;display:flex;background:var(--accent);color:#fff;border-radius:6px;padding:14px;font-size:14px;font-weight:700;text-align:center;text-decoration:none;justify-content:center;transition:.15s}
+.como-cta:hover{background:var(--accent-d)}
+.serv-sec{background:var(--off);padding:96px 64px}
+.sec-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:20px}
+.ver-todo{font-size:13px;color:var(--mid);text-decoration:none;font-weight:500;border-bottom:1px solid var(--border);padding-bottom:2px;transition:.15s}
+.ver-todo:hover{color:var(--black);border-color:var(--black)}
+.tabs{display:flex;border:1px solid var(--border);border-radius:7px;overflow:hidden;background:#fff;width:fit-content;margin-bottom:44px}
+.tab{padding:10px 26px;font-size:13px;font-weight:600;color:var(--mid);background:transparent;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;border-right:1px solid var(--border)}
+.tab:last-child{border-right:none}
+.tab.active{background:var(--black);color:#fff}
+.tab:hover:not(.active){background:var(--light);color:var(--black)}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sc{background:var(--white);border-radius:10px;overflow:hidden;border:1px solid var(--border);transition:.2s}
+.sc:hover{border-color:var(--black);transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.09)}
+.sc-img{height:196px;overflow:hidden;background:var(--light);position:relative}
+.sc-img img{width:100%;height:100%;object-fit:cover;transition:.45s;filter:grayscale(15%)}
+.sc:hover .sc-img img{transform:scale(1.06);filter:grayscale(0%)}
+.sc-body{padding:22px}
+.sc-title{font-family:'Outfit',sans-serif;font-size:17px;font-weight:700;color:var(--black);margin-bottom:7px}
+.sc-desc{font-size:13px;color:var(--mid);line-height:1.62;margin-bottom:18px}
+.sc-cta{font-size:12.5px;font-weight:600;color:var(--black);text-decoration:none;border-bottom:1.5px solid var(--black);padding-bottom:1px;transition:.15s}
+.sc:hover .sc-cta{color:var(--accent);border-color:var(--accent)}
+.res-sec{padding:96px 64px;background:var(--white)}
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.ba-card{border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.ba-imgs{display:grid;grid-template-columns:1fr 1fr;height:220px;position:relative}
+.ba-half{overflow:hidden;position:relative}
+.ba-half img{width:100%;height:100%;object-fit:cover}
+.ba-half.bef img{filter:grayscale(60%) brightness(.82)}
+.ba-half.aft img{filter:saturate(1.15) brightness(1.05)}
+.ba-tag-l{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.65);color:#fff;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;white-space:nowrap}
+.ba-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:#fff;z-index:2}
+.ba-arrow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#fff;z-index:3;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.ba-info{padding:16px 20px}
+.ba-t{font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:var(--black);margin-bottom:3px}
+.ba-s{font-size:12px;color:var(--mid)}
+.testi-sec{background:var(--off);padding:96px 64px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.testi{background:var(--white);border-radius:10px;padding:30px;border:1px solid var(--border);display:flex;flex-direction:column;transition:.2s}
+.testi:hover{border-color:var(--black);transform:translateY(-2px)}
+.t-stars{font-size:13px;margin-bottom:14px}
+.t-text{font-size:14px;color:var(--mid);line-height:1.72;flex:1;margin-bottom:22px;font-style:italic}
+.t-foot{display:flex;align-items:center;gap:12px}
+.t-av{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--border)}
+.t-av img{width:100%;height:100%;object-fit:cover}
+.t-name{font-size:13px;font-weight:600;color:var(--black)}
+.t-role{font-size:11px;color:var(--mid)}
+.t-tag{display:inline-block;background:var(--black);color:#fff;font-size:9.5px;font-weight:700;letter-spacing:.08em;padding:2px 7px;border-radius:3px;margin-top:3px;text-transform:uppercase}
+.cta-fin{background:var(--black);padding:120px 64px;text-align:center;position:relative;overflow:hidden}
+.cta-fin::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(190,74,90,.13) 0%,transparent 65%);pointer-events:none}
+.cta-ey{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:18px;position:relative}
+.cta-h{font-family:'Outfit',sans-serif;font-size:clamp(48px,7vw,88px);font-weight:900;color:#fff;letter-spacing:-.05em;line-height:.95;margin-bottom:20px;position:relative}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.38);max-width:420px;margin:0 auto 48px;line-height:1.65;position:relative}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-main{background:var(--accent);color:#fff;border-radius:6px;padding:16px 42px;font-size:15px;font-weight:700;text-decoration:none;transition:.15s}
+.cta-main:hover{background:var(--accent-d)}
+.cta-ghost{background:transparent;color:rgba(255,255,255,.45);border:1.5px solid rgba(255,255,255,.14);border-radius:6px;padding:15px 28px;font-size:14px;text-decoration:none;transition:.15s}
+.cta-ghost:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.cta-fine{margin-top:28px;font-size:11.5px;color:rgba(255,255,255,.18);letter-spacing:.06em;text-transform:uppercase}
+.info{background:var(--off);display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--border)}
+.ib{padding:48px 52px;border-right:1px solid var(--border)}
+.ib:last-child{border:none}
+.ib-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:16px}
+.ib-row{display:flex;gap:10px;font-size:13.5px;color:var(--black);margin-bottom:10px;align-items:flex-start;line-height:1.5}
+.ib-ic{color:var(--accent);flex-shrink:0}
+.socials{display:flex;gap:8px;margin-top:18px}
+.soc{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--mid);text-decoration:none;font-size:11px;font-weight:700;transition:.15s}
+.soc:hover{background:var(--black);border-color:var(--black);color:#fff}
+footer{background:var(--black);padding:22px 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.fl{font-family:'Outfit',sans-serif;font-size:14px;font-weight:900;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.06em}
+.fl span{color:var(--accent)}footer p{font-size:11px;color:rgba(255,255,255,.2)}
+.wa{position:fixed;bottom:26px;right:26px;z-index:9000;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-msg{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--mid);max-width:210px;box-shadow:0 4px 20px rgba(0,0,0,.1);line-height:1.5;animation:fup .5s ease both 1.5s;opacity:0}
+@keyframes fup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.wa-btn{position:relative;width:54px;height:54px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:.2s}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-btn svg{width:26px;height:26px;fill:#fff}
+.wa-dot{position:absolute;top:-2px;right:-2px;width:13px;height:13px;background:var(--accent);border-radius:50%;border:2px solid #fff;animation:blink 2s infinite}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:none}
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr}.hero-r{height:360px}.hero-deco{display:none}
+  .esp-sec{grid-template-columns:1fr}.esp-img{height:420px}
+  .obj-sec{grid-template-columns:1fr;gap:40px}
+  .serv-grid,.ba-grid,.testi-grid{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .info{grid-template-columns:1fr}.ib{border-right:none;border-bottom:1px solid var(--border)}.ib:last-child{border:none}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}.nav-links a:not(.nav-book){display:none}
+  .hero-l,.esp-content{padding:48px 22px}
+  .obj-sec,.serv-sec,.res-sec,.testi-sec,.cta-fin,.ib{padding:64px 22px}
+  .serv-grid,.ba-grid,.testi-grid{grid-template-columns:1fr}
+  .stat{padding:28px 20px}.stat-n{font-size:36px}
+  footer{padding:20px 22px}
+}
+</style>
+</head>
+<body>
+<div id="sbar"></div>
+
+<div class="ann"><strong>Esta semana:</strong> Primera valoración de piel gratis — cupos limitados <a href="https://wa.me/3319478608?text=Quiero%20mi%20valoraci%C3%B3n%20gratuita" target="_blank">Apartar lugar →</a></div>
+
+<nav>
+  <div class="nav-logo">ONZE<span>.</span></div>
+  <div class="nav-links">
+    <a href="#especialista">Especialista</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#testimonios">Clientas</a>
+    <a href="https://wa.me/3319478608?text=Quiero%20agendar%20una%20cita" target="_blank" class="nav-book">Agendar cita</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-deco">OB</div>
+    <div class="hero-tag rv"><div class="htdot"></div>Zapopan, Jal. · Distribuidora exclusiva Jalisco</div>
+    <h1 class="hero-h1 rv" style="transition-delay:.1s">Tu piel.<br>En manos<br>de <span class="acc">quien sabe.</span></h1>
+    <p class="hero-sub rv" style="transition-delay:.2s">No vendemos tratamientos. Resolvemos problemas de piel reales. Faciales, láser triodo y corporales — con resultados que se ven.</p>
+    <div class="hero-actions rv" style="transition-delay:.28s">
+      <a href="https://wa.me/3319478608?text=Hola%2C%20quiero%20platicar%20sobre%20mis%20opciones" target="_blank" class="btn-blk">Hablar con mi especialista →</a>
+      <a href="#resultados" class="btn-ghost">Ver resultados</a>
+    </div>
+    <div class="hero-stats rv" style="transition-delay:.38s">
+      <div><div class="hs-num">+<span class="acc">2K</span></div><div class="hs-label">Clientas atendidas</div></div>
+      <div><div class="hs-num"><span class="acc">10</span>+</div><div class="hs-label">Años experiencia</div></div>
+      <div><div class="hs-num">★<span class="acc">4.9</span></div><div class="hs-label">Google Reviews</div></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img src="https://loremflickr.com/1400/900/clinic,beauty,skin?lock=1" alt="Clínica Onze Beauté">
+    <div class="hero-float">
+      <div class="hf-avs">
+        <img src="https://loremflickr.com/200/200/woman,face,latina?lock=20" alt=""><img src="https://loremflickr.com/200/200/woman,portrait,mexican?lock=21" alt=""><img src="https://loremflickr.com/200/200/woman,smile,beauty?lock=22" alt="">
+      </div>
+      <div class="hf-text"><strong>+2,000 clientas confían en nosotras</strong>La mayoría llegaron recomendadas</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track">
+  <span class="ticker-item">Hidrafacial · </span><span class="ticker-item">Dermapen · </span><span class="ticker-item">Láser Triodo · </span><span class="ticker-item">Fibroblast · </span><span class="ticker-item">Anti Acné · </span><span class="ticker-item">Criolipolisis · </span><span class="ticker-item">Radiofrecuencia · </span><span class="ticker-item">Maderoterapia · </span><span class="ticker-item">Anti Edad · </span>
+  <span class="ticker-item">Hidrafacial · </span><span class="ticker-item">Dermapen · </span><span class="ticker-item">Láser Triodo · </span><span class="ticker-item">Fibroblast · </span><span class="ticker-item">Anti Acné · </span><span class="ticker-item">Criolipolisis · </span><span class="ticker-item">Radiofrecuencia · </span><span class="ticker-item">Maderoterapia · </span><span class="ticker-item">Anti Edad · </span>
+</div></div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat rv"><div class="stat-n">+<span class="acc">2K</span></div><div class="stat-l">Clientas atendidas</div></div>
+  <div class="stat rv" style="transition-delay:.1s"><div class="stat-n"><span class="acc">10</span>+</div><div class="stat-l">Años de experiencia</div></div>
+  <div class="stat rv" style="transition-delay:.2s"><div class="stat-n">#<span class="acc">1</span></div><div class="stat-l">Distribuidora exclusiva Jalisco</div></div>
+  <div class="stat rv" style="transition-delay:.3s"><div class="stat-n">★<span class="acc">4.9</span></div><div class="stat-l">Calificación en Google</div></div>
+</div>
+
+<!-- ESPECIALISTA -->
+<section class="esp-sec" id="especialista">
+  <div class="esp-img rv">
+    <img src="https://loremflickr.com/800/1000/esthetician,professional,woman?lock=2" alt="Especialista Onze Beauté" loading="lazy">
+    <div class="esp-overlay"><div class="eo-eyebrow">Tu especialista</div><div class="eo-name">Onze Beauté · Zapopan</div></div>
+  </div>
+  <div class="esp-content rv" style="transition-delay:.15s">
+    <div class="eyebrow">Por qué confiar en nosotras</div>
+    <h2 class="h2">La persona detrás<br>del resultado</h2>
+    <p class="body-text">Más de 10 años trabajando con piel real. Antes de cualquier tratamiento evaluamos, escuchamos y diseñamos un plan específico para ti. Eso es lo que hace que nuestras clientas regresen y nos recomienden.</p>
+    <div class="creds">
+      <div class="cred"><div class="cred-n">01</div><div><div class="cred-t">Distribuidora exclusiva en Jalisco</div><div class="cred-s">Solo usamos marcas que conocemos a fondo</div></div></div>
+      <div class="cred"><div class="cred-n">02</div><div><div class="cred-t">Tecnología Láser Triodo certificada</div><div class="cred-s">Seguro para todo tipo de piel y tono de vello</div></div></div>
+      <div class="cred"><div class="cred-n">03</div><div><div class="cred-t">+2,000 clientas en Zapopan</div><div class="cred-s">La mayoría llegaron recomendadas por alguien que confió</div></div></div>
+      <div class="cred"><div class="cred-n">04</div><div><div class="cred-t">Seguimiento personal post-tratamiento</div><div class="cred-s">No te dejamos sola después de la primera sesión</div></div></div>
+    </div>
+    <a href="https://wa.me/3319478608?text=Quiero%20hablar%20con%20la%20especialista" target="_blank" class="btn-blk">Hablar directamente →</a>
+  </div>
+</section>
+
+<!-- OBJECIONES -->
+<section class="obj-sec">
+  <div>
+    <div class="eyebrow">Dudas frecuentes</div>
+    <h2 class="h2 rv">Lo que te frena<br>de dar el paso</h2>
+    <p class="body-text rv" style="transition-delay:.1s;margin-bottom:0">Todas llegan con alguna de estas preguntas. Son válidas. Las respondemos con honestidad.</p>
+  </div>
+  <div>
+    <div class="obj-list rv" style="transition-delay:.1s">
+      <div class="obj-item open"><div class="obj-header" onclick="toggleObj(this)"><div class="obj-q">¿Me va a doler?</div><div class="obj-icon">+</div></div><div class="obj-a">La mayoría son indoloros o muy tolerables. Te explicamos qué vas a sentir antes de empezar. Siempre puedes pedirnos que paremos — sin preguntas.</div></div>
+      <div class="obj-item"><div class="obj-header" onclick="toggleObj(this)"><div class="obj-q">¿Y si no funciona para mi tipo de piel?</div><div class="obj-icon">+</div></div><div class="obj-a">Por eso hacemos una valoración gratuita primero. No recomendamos nada sin evaluar tu piel. Si algo no es para ti, te lo decimos honestamente.</div></div>
+      <div class="obj-item"><div class="obj-header" onclick="toggleObj(this)"><div class="obj-q">¿Me van a presionar para comprar?</div><div class="obj-icon">+</div></div><div class="obj-a">Nunca. Nuestras clientas regresan porque confían, no porque las presionamos. Tú decides si quieres continuar, cuándo y cuánto invertir.</div></div>
+      <div class="obj-item"><div class="obj-header" onclick="toggleObj(this)"><div class="obj-q">Tuve una mala experiencia en otro lugar</div><div class="obj-icon">+</div></div><div class="obj-a">Lo escuchamos seguido. Por eso nos tomamos tiempo de escucharte primero. Cuéntanos qué pasó — construimos desde ahí, con calma.</div></div>
+      <div class="obj-item"><div class="obj-header" onclick="toggleObj(this)"><div class="obj-q">¿Cuándo voy a ver resultados?</div><div class="obj-icon">+</div></div><div class="obj-a">Depende del tratamiento, y te lo decimos antes de empezar — con honestidad. Algunos se ven desde la primera sesión. No prometemos lo que no podemos cumplir.</div></div>
+    </div>
+    <div class="como-box rv" style="transition-delay:.2s">
+      <div class="como-h">Tu primera visita,<br>paso a paso</div>
+      <div class="como-step"><div class="cs-n">01</div><div><div class="cs-t">Me escribes por WhatsApp</div><div class="cs-s">Sin formularios. Solo un mensaje. Respondo en menos de 1 hora.</div></div></div>
+      <div class="como-step"><div class="cs-n">02</div><div><div class="cs-t">Valoración gratuita de tu piel</div><div class="cs-s">Sin costo, sin compromiso. Te digo qué veo y qué opciones tienes.</div></div></div>
+      <div class="como-step"><div class="cs-n">03</div><div><div class="cs-t">Tú decides si seguimos</div><div class="cs-s">Si te convence, agendamos. Si no, sin problema.</div></div></div>
+      <div class="como-step"><div class="cs-n">04</div><div><div class="cs-t">Seguimiento personal</div><div class="cs-s">Te acompaño durante el proceso. No eres un número en una lista.</div></div></div>
+      <a href="https://wa.me/3319478608?text=Quiero%20agendar%20mi%20valoraci%C3%B3n%20gratuita" target="_blank" class="como-cta">Agendar valoración gratuita →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="serv-sec" id="servicios">
+  <div class="sec-top rv">
+    <div><div class="eyebrow">Lo que hacemos</div><h2 class="h2" style="margin-bottom:0">Tratamientos que<br>dan resultados</h2></div>
+    <a href="https://wa.me/3319478608" target="_blank" class="ver-todo">Ver todos →</a>
+  </div>
+  <div class="tabs rv" style="transition-delay:.1s">
+    <button class="tab active" onclick="showTab('f',this)">Faciales</button>
+    <button class="tab" onclick="showTab('l',this)">Depilación Láser</button>
+    <button class="tab" onclick="showTab('c',this)">Corporales</button>
+  </div>
+  <div class="serv-grid">
+    <div class="sc rv tf" style="transition-delay:.1s"><div class="sc-img"><img src="https://loremflickr.com/800/600/facial,hydrafacial,skincare?lock=3" alt="Hidrafacial" loading="lazy"></div><div class="sc-body"><div class="sc-title">Hidrafacial</div><div class="sc-desc">Limpieza, exfoliación e hidratación profunda. Resultados visibles desde la primera sesión.</div><a href="https://wa.me/3319478608?text=Quiero%20info%20del%20Hidrafacial" target="_blank" class="sc-cta">Preguntar →</a></div></div>
+    <div class="sc rv tf" style="transition-delay:.15s"><div class="sc-img"><img src="https://loremflickr.com/800/600/microneedling,dermapen,skin?lock=4" alt="Anti Acné" loading="lazy"></div><div class="sc-body"><div class="sc-title">Anti Acné y Secuela</div><div class="sc-desc">Dermapen más protocolo especializado. Marcas, cicatrices y brotes activos desde la raíz.</div><a href="https://wa.me/3319478608?text=Quiero%20info%20anti%20acn%C3%A9" target="_blank" class="sc-cta">Preguntar →</a></div></div>
+    <div class="sc rv tf" style="transition-delay:.2s"><div class="sc-img"><img src="https://loremflickr.com/800/600/antiaging,collagen,laser?lock=5" alt="Anti Edad" loading="lazy"></div><div class="sc-body"><div class="sc-title">Fibroblast & Anti Edad</div><div class="sc-desc">Estimula colágeno sin cirugía. Arrugas, flacidez y manchas — resultados progresivos.</div><a href="https://wa.me/3319478608?text=Quiero%20info%20anti%20edad" target="_blank" class="sc-cta">Preguntar →</a></div></div>
+    <div class="sc rv tl" style="display:none"><div class="sc-img"><img src="https://loremflickr.com/800/600/laser,hair,removal?lock=6" alt="Láser Piernas" loading="lazy"></div><div class="sc-body"><div class="sc-title">Piernas y Brazos</div><div class="sc-desc">Reducción permanente del vello. Sin dolor, para todo tipo de piel.</div><a href="https://wa.me/3319478608?text=Quiero%20info%20l%C3%A1ser%20piernas" target="_blank" class="sc-cta">Cotizar →</a></div></div>
+    <div class="sc rv tl" style="display:none"><div class="sc-img"><img src="https://loremflickr.com/800/600/laser,hair,removal?lock=6" alt="Axilas Bikini" loading="lazy"></div><div class="sc-body"><div class="sc-title">Axilas, Bikini y Bigote</div><div class="sc-desc">Zonas sensibles con toda la delicadeza que merecen. Paquetes a tu medida.</div><a href="https://wa.me/3319478608?text=Quiero%20info%20l%C3%A1ser%20axilas" target="_blank" class="sc-cta">Cotizar →</a></div></div>
+    <div class="sc rv tl" style="display:none"><div class="sc-img"><img src="https://loremflickr.com/800/600/laser,hair,removal?lock=6" alt="Paquetes Láser" loading="lazy"></div><div class="sc-body"><div class="sc-title">Paquetes Completos</div><div class="sc-desc">Espalda, glúteos, cuerpo completo. Más sesiones, mejor precio.</div><a href="https://wa.me/3319478608?text=Quiero%20paquete%20l%C3%A1ser" target="_blank" class="sc-cta">Armar paquete →</a></div></div>
+    <div class="sc rv tc" style="display:none"><div class="sc-img"><img src="https://loremflickr.com/800/600/body,contouring,beauty?lock=8" alt="Criolipolisis" loading="lazy"></div><div class="sc-body"><div class="sc-title">Criolipolisis</div><div class="sc-desc">Elimina grasa localizada sin cirugía. Para la zona que no cede con dieta ni ejercicio.</div><a href="https://wa.me/3319478608?text=Quiero%20info%20Criolipolisis" target="_blank" class="sc-cta">Preguntar →</a></div></div>
+    <div class="sc rv tc" style="display:none"><div class="sc-img"><img src="https://loremflickr.com/800/600/massage,body,spa?lock=7" alt="Maderoterapia" loading="lazy"></div><div class="sc-body"><div class="sc-title">Maderoterapia</div><div class="sc-desc">Técnica manual que drena, tonifica y modela. Una de las más pedidas.</div><a href="https://wa.me/3319478608?text=Quiero%20info%20Maderoterapia" target="_blank" class="sc-cta">Preguntar →</a></div></div>
+    <div class="sc rv tc" style="display:none"><div class="sc-img"><img src="https://loremflickr.com/800/600/body,contouring,beauty?lock=8" alt="Paquetes Corporales" loading="lazy"></div><div class="sc-body"><div class="sc-title">Paquetes Personalizados</div><div class="sc-desc">Radiofrecuencia, Carboxiterapia, Electrodos — combinamos según tu objetivo.</div><a href="https://wa.me/3319478608?text=Quiero%20paquete%20corporal" target="_blank" class="sc-cta">Armar paquete →</a></div></div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="res-sec" id="resultados">
+  <div class="sec-top rv"><div><div class="eyebrow">Sin filtros. Sin edición.</div><h2 class="h2" style="margin-bottom:0">Resultados reales</h2></div></div>
+  <div class="ba-grid">
+    <div class="ba-card rv" style="transition-delay:.1s">
+      <div class="ba-imgs">
+        <div class="ba-half bef"><img src="https://loremflickr.com/800/500/skin,face,glow?lock=10" loading="lazy"><div class="ba-tag-l">Antes</div></div>
+        <div class="ba-half aft"><img src="https://loremflickr.com/800/500/skin,face,glow?lock=10" loading="lazy"><div class="ba-tag-l">Después</div></div>
+        <div class="ba-line"></div><div class="ba-arrow">→</div>
+      </div>
+      <div class="ba-info"><div class="ba-t">Hidrafacial — 3 sesiones</div><div class="ba-s">Poros limpios, luminosidad desde el día 1</div></div>
+    </div>
+    <div class="ba-card rv" style="transition-delay:.2s">
+      <div class="ba-imgs">
+        <div class="ba-half bef"><img src="https://loremflickr.com/800/500/legs,smooth,skin?lock=11" loading="lazy"><div class="ba-tag-l">Antes</div></div>
+        <div class="ba-half aft"><img src="https://loremflickr.com/800/500/legs,smooth,skin?lock=11" loading="lazy"><div class="ba-tag-l">Después</div></div>
+        <div class="ba-line"></div><div class="ba-arrow">→</div>
+      </div>
+      <div class="ba-info"><div class="ba-t">Láser Triodo — 5 sesiones</div><div class="ba-s">Reducción permanente, sin dolor</div></div>
+    </div>
+    <div class="ba-card rv" style="transition-delay:.3s">
+      <div class="ba-imgs">
+        <div class="ba-half bef"><img src="https://loremflickr.com/800/500/body,slim,beauty?lock=12" loading="lazy"><div class="ba-tag-l">Antes</div></div>
+        <div class="ba-half aft"><img src="https://loremflickr.com/800/500/body,slim,beauty?lock=12" loading="lazy"><div class="ba-tag-l">Después</div></div>
+        <div class="ba-line"></div><div class="ba-arrow">→</div>
+      </div>
+      <div class="ba-info"><div class="ba-t">Criolipolisis + Maderoterapia</div><div class="ba-s">6 cm menos de contorno en 8 sesiones</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testi-sec" id="testimonios">
+  <div class="sec-top rv"><div><div class="eyebrow">Lo que dicen ellas</div><h2 class="h2" style="margin-bottom:0">Las que ya<br>dieron el paso</h2></div></div>
+  <div class="testi-grid">
+    <div class="testi rv" style="transition-delay:.1s">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Llegué con mucho miedo porque había tenido una mala experiencia. Me explicaron todo con calma. Llevo 6 sesiones de Hidrafacial y mi piel nunca había estado así."</p>
+      <div class="t-foot"><div class="t-av"><img src="https://loremflickr.com/200/200/woman,face,latina?lock=20" alt="Valentina"></div><div><div class="t-name">Valentina G.</div><div class="t-role">Lomas del Seminario</div><div class="t-tag">Hidrafacial</div></div></div>
+    </div>
+    <div class="testi rv" style="transition-delay:.2s">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Me daba vergüenza preguntar sobre depilación. La primera llamada me quitó toda la pena. Me explicó todo sin hacerme sentir incómoda. Ya no me imagino sin el láser."</p>
+      <div class="t-foot"><div class="t-av"><img src="https://loremflickr.com/200/200/woman,portrait,mexican?lock=21" alt="Sofía"></div><div><div class="t-name">Sofía R.</div><div class="t-role">Zapopan Centro</div><div class="t-tag">Láser Triodo</div></div></div>
+    </div>
+    <div class="testi rv" style="transition-delay:.3s">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Tenía cicatrices de acné desde los 15 años. Vine sin esperanzas. Me dijeron exactamente qué esperar. En 4 sesiones de Dermapen mi piel cambió por completo."</p>
+      <div class="t-foot"><div class="t-av"><img src="https://loremflickr.com/200/200/woman,smile,beauty?lock=22" alt="Camila"></div><div><div class="t-name">Camila T.</div><div class="t-role">Jardines Vallarta</div><div class="t-tag">Anti Acné</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-fin">
+  <div class="cta-ey rv">El primer paso</div>
+  <h2 class="cta-h rv" style="transition-delay:.1s">Mándame<br>un mensaje.</h2>
+  <p class="cta-sub rv" style="transition-delay:.2s">No necesitas saber qué tratamiento quieres. Solo cuéntame qué te preocupa — de ahí arrancamos.</p>
+  <div class="cta-btns rv" style="transition-delay:.3s">
+    <a href="https://wa.me/3319478608?text=Hola%2C%20quiero%20platicar%20sobre%20mis%20opciones" target="_blank" class="cta-main">Escribir a mi especialista →</a>
+    <a href="#resultados" class="cta-ghost">Ver resultados primero</a>
+  </div>
+  <div class="cta-fine rv" style="transition-delay:.4s">Valoración gratuita · Sin compromiso · Respuesta en menos de 1 hora</div>
+</section>
+
+<!-- INFO -->
+<div class="info">
+  <div class="ib rv">
+    <div class="ib-label">Ubicación</div>
+    <div class="ib-row"><span class="ib-ic">↗</span><span>Av. Ludwig Van Beethoven 4957, Local 11, Lomas del Seminario, Zapopan, Jal.</span></div>
+    <div class="ib-row"><span class="ib-ic">↗</span><span>33 1947 8608</span></div>
+    <div class="socials">
+      <a href="https://instagram.com/onzebeaute" target="_blank" class="soc">IG</a>
+      <a href="https://facebook.com/beauteonze" target="_blank" class="soc">FB</a>
+      <a href="https://wa.me/3319478608" target="_blank" class="soc">WA</a>
+    </div>
+  </div>
+  <div class="ib rv" style="transition-delay:.1s">
+    <div class="ib-label">Horarios</div>
+    <div class="ib-row"><span class="ib-ic">↗</span><span><strong>Lun – Vie</strong>&nbsp; 10:00 – 18:00</span></div>
+    <div class="ib-row"><span class="ib-ic">↗</span><span><strong>Sábado</strong>&nbsp; 10:00 – 14:00</span></div>
+    <div class="ib-row"><span class="ib-ic" style="opacity:.3">—</span><span style="opacity:.4">Domingo cerrado</span></div>
+  </div>
+  <div class="ib rv" style="transition-delay:.2s">
+    <div class="ib-label">Cómo llegar</div>
+    <div class="ib-row"><span class="ib-ic">↗</span><span>Estacionamiento disponible en plaza</span></div>
+    <div class="ib-row"><span class="ib-ic">↗</span><span>5 min de Andares y Puerta de Hierro</span></div>
+    <a href="https://maps.google.com/?q=Av.+Ludwig+Van+Beethoven+4957+Zapopan" target="_blank" style="font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;margin-top:14px;display:inline-block">Ver en Google Maps →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">ONZE<span>.</span>BEAUTÉ</div>
+  <p>© 2025 Onze Beauté · Distribuidora exclusiva Jalisco</p>
+  <p><a href="https://wa.me/3319478608" style="color:var(--accent)">33 1947 8608</a> · Lun–Vie 10–18 · Sáb 10–14</p>
+</footer>
+
+<!-- WA FLOTANTE -->
+<div class="wa">
+  <div class="wa-msg">¿Tienes dudas? Te respondo en menos de 1 hora 👋</div>
+  <button class="wa-btn" onclick="window.open('https://wa.me/3319478608?text=Hola','_blank')">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.547 4.083 1.506 5.797L0 24l6.388-1.495A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.364l-.36-.213-3.719.870.899-3.62-.236-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818z"/></svg>
+    <div class="wa-dot"></div>
+  </button>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('sbar').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+function showTab(t,btn){
+  document.querySelectorAll('.sc').forEach(c=>c.style.display=c.classList.contains('t'+t)?'':'none');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  setTimeout(()=>document.querySelectorAll('.t'+t).forEach((c,i)=>{c.classList.remove('vis');setTimeout(()=>c.classList.add('vis'),i*80)}),40);
+}
+function toggleObj(h){
+  const item=h.parentElement;const open=item.classList.contains('open');
+  document.querySelectorAll('.obj-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+</script>
+</body>
+</html>
